@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Dashboard from './pages/Dashboard'
 import Jurnal from './pages/Jurnal'
@@ -10,16 +10,16 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        {/* Redirect root ke dashboard */}
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        {/* Root path langsung render Dashboard */}
+        <Route path="/" element={<Dashboard />} />
         
-        {/* Routes utama */}
+        {/* Routes lainnya */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/jurnal" element={<Jurnal />} />
         <Route path="/profile" element={<Profile />} />
         
         {/* 404 - Redirect ke dashboard */}
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        <Route path="*" element={<Dashboard />} />
       </Routes>
     </div>
   )
